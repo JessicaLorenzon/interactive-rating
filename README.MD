@@ -5,5 +5,5 @@ Projeto criado durante o desafio [Interactive Rating Component
 
 Você pode ver o resultado final [aqui](https://jessicalorenzon.github.io/interactive-rating/).
 
-![interactive-rating](interactive-rating1.png)
-![interactive-rating](interactive-rating2.png)
+![interactive-rating1](interactive-rating1.png)
+![interactive-rating2](interactive-rating2.png)
