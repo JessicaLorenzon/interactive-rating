@@ -1,24 +1,31 @@
-const btnContainer = document.querySelector(".survey__classificacao");
-
-const btns = btnContainer.querySelectorAll(".btn");
-
+const btns = document.querySelectorAll(".btn");
 const btnSubmit = document.querySelector(".submit__button");
 
-let nota = null;
+btns.forEach((elemento) => {
+    elemento.addEventListener("click", () => {
+        //ativa o botao da nota clicada             
+        const clicadoAnteriormente = document.querySelector(".btn.active");
 
-for (let i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function () {
-        nota = i + 1;
-        if (document.querySelector(".btn.active") != null) {
-            document.querySelector(".btn.active").classList.remove("active");
+        if (clicadoAnteriormente !== null) {
+            clicadoAnteriormente.classList.remove("active");
         }
-        this.classList.add("active");
 
-    })
-}
+        elemento.classList.add("active");
 
-btnSubmit.addEventListener("click", function () {
-    document.querySelector(".feedback__nota span").innerHTML = nota;
-    document.querySelector(".survey").classList.remove("active");
-    document.querySelector(".feedback").classList.add("active");
-})
+        //atualiza a nota que aparecera na tela final
+        const nota = elemento.textContent;
+
+        const feedbackNota = document.querySelector(".feedback__nota span");
+        feedbackNota.innerHTML = nota;
+
+        //habilita botao submit quando uma nota é selecionada
+        btnSubmit.disabled = false;
+
+    });
+});
+
+//oculta tela inicial e exibe tela final quando submit é clicado
+btnSubmit.addEventListener("click", () => {
+    document.querySelector('.survey').classList.remove("active");
+    document.querySelector('.feedback').classList.add("active");
+});

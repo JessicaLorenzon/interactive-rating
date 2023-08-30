@@ -119,10 +119,15 @@ body {
     letter-spacing: 4px;
 }
 
-.submit__button:hover {
+.submit__button:not([disabled]):hover {
     transition: .2s;
     background-color: var(--neutral-100);
     color: var(--primary-100);
+}
+
+.submit__button:disabled {
+    opacity: .5;
+    cursor: default;
 }
 
 
